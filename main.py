@@ -85,34 +85,6 @@ loader = SimpleDirectoryReader(
         )
 docs = loader.load_data()
 
-# # Creating a vector index over loaded data
-# logger.info('Creating vector index')
-# try:
-#     index = create_redis_index(docs)
-#     logger.info('Using Redis collection')
-# except:
-#     logger.warning("Failed to create Redis collection, using local collection")
-#     index = VectorStoreIndex.from_documents(docs, show_progress=True)
-
-
-# # ====== Customise prompt template ======
-# qa_prompt_tmpl_str = (
-# "Context information is below.\n"
-# "---------------------\n"
-# "{context_str}\n"
-# "---------------------\n"
-# "Given the context information above I want you to think step by step to answer the query in a crisp manner, incase case you don't know the answer say 'I don't know!'.\n"
-# "Query: {query_str}\n"
-# "Answer: "
-# )
-# qa_prompt_tmpl = PromptTemplate(qa_prompt_tmpl_str)
-
-# query_engine.update_prompts(
-#     {"response_synthesizer:text_qa_template": qa_prompt_tmpl}
-# )
-# response = query_engine.query(user_query,)
-
-
 # Create the knowledge graph index
 uri = config.NEO4J_URI
 username = config.NEO4J_USERNAME
