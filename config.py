@@ -3,11 +3,9 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    NEO4J_URI: str = "neo4j+s://16cbd7c0.databases.neo4j.io"
+    NEO4J_URI: str = ""
     NEO4J_USERNAME: str = "neo4j"
-    NEO4J_PASSWORD: str = "SXt5LodHtuDh-DfLF8VllCBNLLUyc-U_fIoERmQ6eg8"
-    AURA_INSTANCEID: str = "16cbd7c0"
-    AURA_INSTANCENAME: str ="Insttance01"
+    NEO4J_PASSWORD: str = ""
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
     REDIS_PASSWORD: str = ""
@@ -54,31 +52,3 @@ except ValidationError as e:
     print(f'Environment variable validation error: {e}')
     config = BaseSettings()
     exit()
-
-
-def test():
-    """
-    >>> import os
-    >>> os.environ['NEO4J_URI'] = 'neo4j://Valid_URI'
-    >>> os.environ['NEO4J_USERNAME'] = 'Valid_Username'
-    >>> os.environ['NEO4J_PASSWORD'] = 'Valid_Password'
-    >>> os.environ['AURA_INSTANCEID'] = 'Valid_InstanceID'
-    >>> os.environ['AURA_INSTANCENAME'] = 'Valid_InstanceName'
-    >>> config = Settings()
-    >>> config.NEO4J_URI
-    'neo4j://Valid_URI'
-    >>> config.NEO4J_USERNAME
-    'Valid_Username'
-    >>> config.NEO4J_PASSWORD
-    'Valid_Password'
-    >>> config.AURA_INSTANCEID
-    'Valid_InstanceID'
-    >>> config.AURA_INSTANCENAME
-    'Valid_InstanceName'
-
-    """
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()

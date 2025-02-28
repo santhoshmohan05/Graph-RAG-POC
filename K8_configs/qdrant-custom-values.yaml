@@ -1,0 +1,10 @@
+persistence:
+  config:
+    enabled: true
+    type: persistentVolumeClaim
+    existingClaim: qdrant-pvc
+  accessModes: ["ReadWriteOnce"]
+  size: 5Gi
+  annotations: {}
+  storageVolumeName: qdrant-pvc
+  storageClassName: local-path

@@ -1,0 +1,13 @@
+ollama:
+  models:
+    pull:
+      - bge-m3
+      - deepseek-r1:1.5b
+  
+ingress:
+  enabled: true
+  hosts:
+  - host: ollama.graphrag.models
+    paths:
+      - path: /
+        pathType: Prefix

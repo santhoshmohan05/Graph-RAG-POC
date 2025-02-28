@@ -1,0 +1,28 @@
+neo4j:
+ name: neo4j
+ password: neo4JPassword
+ resources:
+  cpu: 0.5
+  memory: 2G
+  # Neo4j Edition to use (community|enterprise) the default is 
+  # community so only change this if you have a license
+  edition: community
+  # set edition: “enterprise” to use Neo4j Enterprise Edition
+  # To use Neo4j Enterprise Edition you must have a Neo4j license 
+  # agreement.
+  #
+  # More information is also available at: neo4j.com/licensing
+config:
+  dbms.security.procedures.unrestricted: "apoc.*"
+  dbms.security.procedures.allowlist: apoc.*, gds.*
+apoc_config:
+  apoc.export.file.enabled: "true"
+  apoc.import.file.enabled: "true"
+env:
+    NEO4J_PLUGINS: '["apoc"]'
+volumes:
+  data:
+    mode: volume
+    volume:
+      persistentVolumeClaim:
+        claimName: neo4j-pvc

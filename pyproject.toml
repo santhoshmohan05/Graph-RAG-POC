@@ -8,7 +8,7 @@ license = "private"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.11,<3.13"
 ollama = "^0.4.7"
 nest-asyncio = "^1.6.0"
 llama-index = "^0.12.14"
@@ -20,6 +20,8 @@ llama-index-vector-stores-redis = "^0.4.0"
 pydantic = "^2.10.6"
 pydantic-settings = "^2.7.1"
 neo4j = "^5.27.0"
+graspologic = "^3.4.1"
+llama-index-vector-stores-qdrant = "^0.4.3"
 
 
 [build-system]
